@@ -74,20 +74,7 @@ MonoBehaviour:
     - {x: -0.04816358, y: -0.035981856, z: 0.005703037}
     onRecognized:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8914496823215142032, guid: 0000000000000000d000000000000000,
-            type: 0}
-          m_TargetAssemblyTypeName: GestureAction, Assembly-CSharp
-          m_MethodName: CheckGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: peace
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - name: RockNrRoll
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -116,20 +103,7 @@ MonoBehaviour:
     - {x: -0.14453092, y: -0.038989414, z: 0.049767762}
     onRecognized:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8914496823215142032, guid: 0000000000000000d000000000000000,
-            type: 0}
-          m_TargetAssemblyTypeName: GestureAction, Assembly-CSharp
-          m_MethodName: CheckGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: rocknroll
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - name: ThumbsUp
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -158,20 +132,7 @@ MonoBehaviour:
     - {x: -0.050453342, y: -0.02037206, z: 0.019026162}
     onRecognized:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8914496823215142032, guid: 0000000000000000d000000000000000,
-            type: 0}
-          m_TargetAssemblyTypeName: GestureAction, Assembly-CSharp
-          m_MethodName: CheckGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: thumbsup
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - name: Kon
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -200,20 +161,7 @@ MonoBehaviour:
     - {x: -0.14516243, y: -0.039407354, z: 0.04455905}
     onRecognized:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8914496823215142032, guid: 0000000000000000d000000000000000,
-            type: 0}
-          m_TargetAssemblyTypeName: GestureAction, Assembly-CSharp
-          m_MethodName: CheckGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: kon
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - name: Gun
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -243,20 +191,48 @@ MonoBehaviour:
     onRecognized:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8914496823215142032, guid: 0000000000000000d000000000000000,
-            type: 0}
-          m_TargetAssemblyTypeName: GestureAction, Assembly-CSharp
-          m_MethodName: CheckGesture
-          m_Mode: 5
+        - m_Target: {fileID: 5548209504227166028}
+          m_TargetAssemblyTypeName: GestureTeleportation, Assembly-CSharp
+          m_MethodName: GestureFound
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: gun
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  detectionThreshold: 0.1
+  - name: NeutralHand
+    fingerData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: -0.020068998, y: -0.011553998, z: -0.010497002}
+    - {x: -0.035958428, y: -0.019157706, z: -0.028028509}
+    - {x: -0.062269572, y: -0.020943647, z: -0.047044896}
+    - {x: -0.09390412, y: -0.022532761, z: -0.058821924}
+    - {x: -0.095996186, y: -0.007316457, z: -0.023550607}
+    - {x: -0.13148837, y: -0.019620435, z: -0.018316649}
+    - {x: -0.14912876, y: -0.036028832, z: -0.015115414}
+    - {x: -0.095646605, y: -0.0025431523, z: -0.0017259838}
+    - {x: -0.13261399, y: -0.023641597, z: 0.0038411233}
+    - {x: -0.15112327, y: -0.043861922, z: 0.0065841153}
+    - {x: -0.08869379, y: -0.0065293014, z: 0.017465167}
+    - {x: -0.12260374, y: -0.024738282, z: 0.02372947}
+    - {x: -0.14217395, y: -0.042523567, z: 0.02634357}
+    - {x: -0.03407354, y: -0.009419843, z: 0.022998592}
+    - {x: -0.07789578, y: -0.013691181, z: 0.035054114}
+    - {x: -0.10508545, y: -0.02661089, z: 0.041181583}
+    - {x: -0.12071734, y: -0.039037995, z: 0.04489126}
+    - {x: -0.114484444, y: -0.024140166, z: -0.07224101}
+    - {x: -0.16377826, y: -0.052441012, z: -0.010957254}
+    - {x: -0.16808897, y: -0.06198354, z: 0.00948341}
+    - {x: -0.15965612, y: -0.059492067, z: 0.027269121}
+    - {x: -0.13847163, y: -0.05182333, z: 0.04674845}
+    onRecognized:
+      m_PersistentCalls:
+        m_Calls: []
+  detectionThreshold: 0.05
   isSaveNewGestures: 1
 --- !u!1 &2740119717103541861
 GameObject:
@@ -342,7 +318,7 @@ MonoBehaviour:
   groundPlaneMask:
     serializedVersion: 2
     m_Bits: 64
-  isDrawingLine: 1
+  isDrawingLine: 0
   body: {fileID: 2740119717103541861}
 --- !u!120 &7246172478928214479
 LineRenderer:
@@ -364,7 +340,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 4a4f37221c1ec944c8dbea390a76fe15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
