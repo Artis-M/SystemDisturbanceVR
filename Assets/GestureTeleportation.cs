@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GestureTeleportation : MonoBehaviour
+{
+    public Transform handBase;
+    public LineRenderer lineRender;
+    public LayerMask groundPlaneMask;
+    public bool isDrawingLine = true;
+    RaycastHit teleportationHit;
+    public GameObject body;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(isDrawingLine)
+        {
+         
+         
+            if (Physics.Raycast(handBase.position, handBase.right, out teleportationHit, 10, groundPlaneMask))
+            {
+                lineRender.SetPosition(0, handBase.position);
+                lineRender.SetPosition(1, teleportationHit.point);
+            }
+            else
+            {
+                lineRender.SetPosition(0, Vector3.zero);
+                lineRender.SetPosition(1, Vector3.zero);
+            }
+        }
+    }
+
+
+    public void GestureFound()
+    {
+        if (isDrawingLine)
+        {
+            body.transform.position = teleportationHit.point;
+            StopDrawingTeleportationLine();
+        }
+        else
+        {
+            DrawTeleportationLine();
+        }
+    }
+    
+    void DrawTeleportationLine()
+    {
+        isDrawingLine = true;
+        lineRender.enabled = true;
+    }
+
+    void StopDrawingTeleportationLine()
+    {
+        isDrawingLine = false;
+        lineRender.enabled = false;
+    }
+    void OnTeleportGesture(){
+        
+    }
+}
