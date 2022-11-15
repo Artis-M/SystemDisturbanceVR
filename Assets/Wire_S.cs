@@ -32,6 +32,7 @@ public class Wire_S : MonoBehaviour
         obj1.transform.localScale = newScale;
 
         Vector3 scale2 = new(0.1f, obj2.transform.position.y - OriginalPosition2.y, 0.1f);
+        obj2.transform.localScale = scale2;
     }
 
     private void OnCollisionEnter(Collision other)
