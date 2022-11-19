@@ -9,19 +9,54 @@ public class EmergencyPower_S : MonoBehaviour
 
     [SerializeField] private float EventAngle = 45;
     [SerializeField] private float SpawnAngle = 0;
-    public Light light;
-    public Light light2;
-    private GameObject rotator;
-    private Wire_S wires;
-    
+    public GameObject light;
+    public GameObject light2;
+    public GameObject switch1;
+    public GameObject switch2;
+    public GameObject switch3;
+    public GameObject switch4;
+    public GameObject switch5;
+    public GameObject switch6;
+    public GameObject switch7;
+
+
+    private void Awake()
+    {
+        light.SetActive(false);
+        light2.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        rotator = GameObject.Find("rotatoBaser");
-        GetComponentInChildren(typeof(GameObject)).transform.Rotate(0,SpawnAngle,0);
+        
     }
 
-    private void OnTransformChildrenChanged()
+    void Update()
+    {
+        
+        var cond1 = switch1.transform.position.y > 1f;
+        var cond2 = switch2.transform.position.y < 1f;
+        var cond3 = switch3.transform.position.y > 1f;
+        var cond4 = switch4.transform.position.y > 1f;
+        var cond5 = switch5.transform.position.y > 1f;
+        var cond6 = switch6.transform.position.y < 1f;
+        var cond7 = switch7.transform.position.y > 1f;
+  
+        if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7)
+        {
+            Debug.Log(switch5.transform.position.y);
+            light.SetActive(true);
+            light2.SetActive(true);
+        }
+        else
+        {
+            light.SetActive(false);
+            light2.SetActive(false); 
+        }
+    }
+
+    /*private void OnTransformChildrenChanged()
     {
         if(rotator.transform.up.y == EventAngle && wires.ObjectsConnected > 1)
         {
@@ -34,6 +69,6 @@ public class EmergencyPower_S : MonoBehaviour
             light.enabled = false;
             light2.color = new Color(115, 115, 113);
         }
-    }
+    }*/
 
 }
