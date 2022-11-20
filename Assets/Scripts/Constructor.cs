@@ -25,6 +25,7 @@ public class Constructor : MonoBehaviour
             if (MissingParts.Count == 0)
             {
                 Debug.Log("HOORAY");
+                GameManager.FinishGame();
             }
         }
     }

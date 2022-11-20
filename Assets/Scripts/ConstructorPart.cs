@@ -11,7 +11,7 @@ public class ConstructorPart : MonoBehaviour
     public UnityEvent WhenFound;
 
     private int _deltaScale = 5;
-    private float _deltaZRotate = 0.053f;
+    private float _deltaZRotate = 0.153f;
     private float deltaXScale;
 
     // Start is called before the first frame update
