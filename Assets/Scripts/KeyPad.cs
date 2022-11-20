@@ -16,21 +16,19 @@ public class KeyPad : MonoBehaviour
     {
         displayText = display.GetComponent<TextMeshPro>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void AppendNr(int nr)
     {
-        string text = displayText.text;
-        string newText = text.Substring(1) +""+nr;
-        displayText.text = newText;
-        if (newText == code)
+        Debug.Log("append"+nr);
+        if (GameManager.PowerOn)
         {
-            Trigerable.onTrigger.Invoke();
+            string text = displayText.text;
+            string newText = text.Substring(1) +""+nr;
+            displayText.text = newText;
+            if (newText == code)
+            {
+                Trigerable.onTrigger.Invoke();
+            }    
         }
     }
 

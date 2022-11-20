@@ -32,8 +32,6 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
     private Renderer displayRender;
 
-    public bool isValidToStart = false;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,16 +50,11 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
     void StartDestructionCountdown()
     {
-        //Yes
-    }
-
-    void setValidToStart(bool yesno)
-    {
-        isValidToStart = yesno;
+        GameManager.isSelfDestruct = true;
     }
     public void startSequence()
     {
-        if (isValidToStart)
+        if (GameManager.PowerOn)
         {
             //play sound
             return;

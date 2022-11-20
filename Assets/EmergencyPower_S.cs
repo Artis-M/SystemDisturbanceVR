@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class EmergencyPower_S : MonoBehaviour
 {
 
+    public List<Light> lights;
+    private static List<Light> _lights;
+    
     [SerializeField] private float EventAngle = 45;
     [SerializeField] private float SpawnAngle = 0;
     public GameObject light;
@@ -22,14 +26,33 @@ public class EmergencyPower_S : MonoBehaviour
 
     private void Awake()
     {
+        _lights = lights;
         light.SetActive(false);
-        Debug.Log("light "+light.name + light.activeSelf);
+        //Debug.Log("light "+light.name + light.activeSelf);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public static void ToggleLights(bool onOff)
+    {
+        float intensity = 0;
+        if (onOff)
+        {
+            intensity = 1;
+        }
+        else
+        {
+            intensity = 0.05f;
+        }
+
+        foreach (Light light in _lights)
+        {
+            light.intensity = intensity;
+        }
     }
 
     void Update()
@@ -42,11 +65,11 @@ public class EmergencyPower_S : MonoBehaviour
         var cond5 = switch5.transform.position.y > 1f;
         var cond6 = switch6.transform.position.y < 1f;
         var cond7 = switch7.transform.position.y > 1f;
-    Debug.Log("light"+switch1.transform.position.y);
         if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7)
         {
-            Debug.Log(switch5.transform.position.y);
+            //Debug.Log(switch5.transform.position.y);
             light.SetActive(true);
+            GameManager.PowerOn = true;
             lines[16].startColor = color;
             lines[16].endColor = color;
         }
