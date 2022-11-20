@@ -18,6 +18,7 @@ public class EmergencyPower_S : MonoBehaviour
     public GameObject switch5;
     public GameObject switch6;
     public GameObject switch7;
+    public List<LineRenderer> lines;
 
 
     private void Awake()
@@ -34,7 +35,7 @@ public class EmergencyPower_S : MonoBehaviour
 
     void Update()
     {
-        
+        var color = Color.yellow;
         var cond1 = switch1.transform.position.y > 1f;
         var cond2 = switch2.transform.position.y < 1f;
         var cond3 = switch3.transform.position.y > 1f;
@@ -53,6 +54,84 @@ public class EmergencyPower_S : MonoBehaviour
         {
             light.SetActive(false);
             light2.SetActive(false); 
+        }
+        if (cond1)
+        {
+            lines[0].startColor = color;
+            lines[0].endColor = color;
+            if (cond3)
+            {
+                lines[12].startColor = color;
+                lines[12].endColor = color;
+
+                if (cond5 && cond4)
+                {
+                    lines[14].startColor = color;
+                    lines[14].endColor = color;
+                }
+            }
+        }
+        else
+        {
+            lines[7].startColor = color;
+            lines[7].endColor = color;
+        }
+        if (cond2)
+        {
+            lines[1].startColor = color;
+            lines[1].endColor = color;
+            lines[8].startColor = color;
+            lines[8].endColor = color;
+        }
+        if (cond2 || !cond3)
+        {
+            lines[11].startColor = color;
+            lines[11].endColor = color;
+        }
+        if (cond3)
+        {
+            lines[2].startColor = color;
+            lines[2].endColor = color;
+        }
+        else
+        {
+            lines[9].startColor = color;
+            lines[9].endColor = color;
+        }
+        if (cond4)
+        {
+            lines[3].startColor = color;
+            lines[3].endColor = color;
+            if (cond5)
+            {
+                lines[13].startColor = color;
+                lines[13].endColor = color;
+            }
+        }
+        if (cond5)
+        {
+            lines[4].startColor = color;
+            lines[4].endColor = color;
+        }
+        if (cond6)
+        {
+            lines[5].startColor = color;
+            lines[5].endColor = color;
+        }
+        else
+        {
+            lines[10].startColor = color;
+            lines[10].endColor = color;
+        }
+        if (cond7)
+        {
+            lines[6].startColor = color;
+            lines[6].endColor = color;
+            if (!cond6)
+            {
+                lines[15].startColor = color;
+                lines[15].endColor = color;
+            }
         }
     }
 
