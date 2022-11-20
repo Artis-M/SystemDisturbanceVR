@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Oculus.Interaction.PoseDetection;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,7 +20,9 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
     public List<String> gestureOrder = new List<string>();
 
-    public int lenght = 4;
+    public List<Light> warningLights = new List<Light>();
+
+    public int lenght = 5;
     
     public List<MaterialNamed> MaterialNameds;
     
@@ -28,6 +31,8 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
     public GameObject display;
 
     private Renderer displayRender;
+
+    public bool isValidToStart = false;
     
     // Start is called before the first frame update
     void Start()
@@ -43,6 +48,27 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void StartDestructionCountdown()
+    {
+        //Yes
+    }
+
+    void setValidToStart(bool yesno)
+    {
+        isValidToStart = yesno;
+    }
+    public void startSequence()
+    {
+        if (isValidToStart)
+        {
+            //play sound
+            return;
+        }
+        createOrder();
+        displaySequence();
+        displayRender.material = materials["questionMark"];
     }
 
     void createOrder()
@@ -69,9 +95,20 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
         }
         
-        displayRender.material = materials[gestureOrder.First()];
+        displayRender.material = materials["questionMark"];
     }
 
+    private IEnumerator displaySequence()
+    {
+        foreach (var gestureVar in gestureOrder)
+        {
+            displayRender.material = materials[gestureVar];
+            yield return new WaitForSeconds(1f);
+        }
+        displayRender.material = materials[gestureOrder.First()];
+        yield return null;
+    }
+    
     public void CheckGesture(String name)
     {
         if (gestureOrder.Count > 0)
@@ -81,11 +118,13 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
                 gestureOrder.RemoveAt(0);
                 if (gestureOrder.Count > 0)
                 {
-                    displayRender.material = materials[gestureOrder.First()];
+                    warningLights.First().color = Color.green;
+                    warningLights.RemoveAt(0);
                 }
                 else
                 {
                     displayRender.material = materials["done"];
+                    StartDestructionCountdown();
                 }
                 
             }
@@ -93,6 +132,7 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
         else
         {
             displayRender.material = materials["done"];
+            StartDestructionCountdown();
         }
         
         Debug.LogError(name);
