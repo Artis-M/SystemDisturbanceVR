@@ -10,7 +10,7 @@ public class GestureTeleportationV2 : MonoBehaviour
     private int wallLayer;
     private int teleportableLayers;
     public GameObject body;
-
+    public bool isDebug = false;
     
     void Start()
     {
@@ -20,6 +20,7 @@ public class GestureTeleportationV2 : MonoBehaviour
     
     private void Update()
     {
+    if(!isDebug) return;
         Vector3 direction = new Vector3(handBase.forward.x, 0, handBase.forward.z).normalized;
         if (Physics.Raycast(handBase.position, direction, out teleportationHit, TeleportDistance, teleportableLayers))
         {
