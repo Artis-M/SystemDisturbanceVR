@@ -14,7 +14,6 @@ public class SmartLock : MonoBehaviour
     {
         if (other.gameObject == lockKey)
         {
-            Debug.Log("Triggered!");
             trigerable.onTrigger.Invoke();
         }
     }

@@ -10,12 +10,17 @@ public class HQExit : MonoBehaviour
     {
         if (!triggered)
         {
-            Debug.Log("TRIGGERED");
-            GameManager.PowerOn = false;
+            StartCoroutine(TurnPowerOff());
             triggered = true;
         }
     }
 
+    IEnumerator TurnPowerOff()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.PowerOn = false;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
