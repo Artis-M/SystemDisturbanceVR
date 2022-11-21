@@ -2472,6 +2472,7 @@ GameObject:
   - component: {fileID: 219097861}
   - component: {fileID: 219097860}
   - component: {fileID: 219097859}
+  - component: {fileID: 219097864}
   m_Layer: 0
   m_Name: Engine_1
   m_TagString: Untagged
@@ -2592,6 +2593,19 @@ Transform:
   m_Father: {fileID: 274892695}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &219097864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219097858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40584707, y: 0.111874856, z: 0.18592264}
+  m_Center: {x: 0.0000058551163, y: -0.03950675, z: -0.0049705403}
 --- !u!1 &231662987
 GameObject:
   m_ObjectHideFlags: 0
@@ -9471,7 +9485,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  detectionThreshold: 0.1
+  detectionThreshold: 0.08
   isSaveNewGestures: 1
 --- !u!1 &827211781
 GameObject:
@@ -13634,7 +13648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131634388}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.88429546, y: 0, z: 6.9888906}
+  m_LocalPosition: {x: -5.019, y: 0, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18296,6 +18310,7 @@ GameObject:
   - component: {fileID: 1629577384}
   - component: {fileID: 1629577383}
   - component: {fileID: 1629577382}
+  - component: {fileID: 1629577386}
   m_Layer: 0
   m_Name: Engine_2
   m_TagString: Untagged
@@ -18416,6 +18431,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629577380}
   m_Mesh: {fileID: 4300000, guid: 42b963f30a97fef4bad91f0e4e3c954d, type: 3}
+--- !u!136 &1629577386
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629577380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.06279496
+  m_Height: 0.17689145
+  m_Direction: 1
+  m_Center: {x: -0.0000024177136, y: 0.0054210965, z: -0.000000052154093}
 --- !u!1001 &1630356077
 PrefabInstance:
   m_ObjectHideFlags: 0

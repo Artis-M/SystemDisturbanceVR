@@ -54,7 +54,7 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
     }
     public void startSequence()
     {
-        if (GameManager.PowerOn)
+        if (!GameManager._ReadyForSelfDestruct)
         {
             //play sound
             return;

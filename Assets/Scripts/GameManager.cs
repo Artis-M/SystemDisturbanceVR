@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     private static bool _isPowerOn = true;
+    public static bool _ReadyForSelfDestruct = false;
     public static bool PowerOn
     {
         get { return _isPowerOn; }
         set
         {
             _isPowerOn = value;
+            _ReadyForSelfDestruct = value;
             EmergencyPower_S.ToggleLights(value);
         }
 

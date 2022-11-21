@@ -11,7 +11,7 @@ public class ConstructorPart : MonoBehaviour
     public UnityEvent WhenFound;
 
     private int _deltaScale = 5;
-    private float _deltaZRotate = 0.153f;
+    private float _deltaZRotate = 0.155f;
     private float deltaXScale;
 
     // Start is called before the first frame update
@@ -19,8 +19,8 @@ public class ConstructorPart : MonoBehaviour
     {
         _mesh = gameObject.GetComponent<MeshRenderer>();
         _mesh.enabled = false;
-        CapsuleCollider thisCollider = gameObject.AddComponent<CapsuleCollider>();
-        thisCollider.isTrigger = true;
+        //CapsuleCollider thisCollider = gameObject.AddComponent<CapsuleCollider>();
+        //thisCollider.isTrigger = true;
 
         deltaXScale = Math.Abs(gameObject.transform.localScale.x * _deltaScale / 100);
     }
