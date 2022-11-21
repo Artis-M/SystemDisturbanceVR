@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6219446236121516943}
   - component: {fileID: 6219446236121516942}
   - component: {fileID: 6219446236121516929}
+  - component: {fileID: 108868158891366420}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -97,6 +98,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &108868158891366420
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219446236121516930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e42928fead1c0df42b0672073e765633, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6219446236738076743
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +129,6 @@ GameObject:
   - component: {fileID: 6219446236738076740}
   - component: {fileID: 6219446236738076741}
   - component: {fileID: 6219446236738076738}
-  - component: {fileID: 6219446236738076739}
   m_Layer: 0
   m_Name: Door 1
   m_TagString: Untagged
@@ -184,23 +204,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 6219446236121516930}
---- !u!95 &6219446236738076739
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6219446236738076743}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e42928fead1c0df42b0672073e765633, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

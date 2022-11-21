@@ -43,10 +43,10 @@ public class GestureRecognition : MonoBehaviour
     public void GetSkeleton()
     {
         fingerBones = new List<OVRBone>(skeleton.Bones);
-        Debug.LogError(fingerBones.Count);
+        //Debug.LogError(fingerBones.Count);
        foreach (var bones in fingerBones)
        {
-           Debug.LogError(bones.Transform);
+           //Debug.LogError(bones.Transform);
        }
     }
     
@@ -71,7 +71,7 @@ public class GestureRecognition : MonoBehaviour
 
             if (hasRecognized && !currentGesture.Equals(previosGesture))
             {
-                Debug.LogWarning("New Gesture Found: " + currentGesture.name);
+                //Debug.LogWarning("New Gesture Found: " + currentGesture.name);
                 previosGesture = currentGesture;
                 currentGesture.onRecognized.Invoke();
             }

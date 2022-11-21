@@ -2,22 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class SmartLock : MonoBehaviour
+public class HQExit : MonoBehaviour
 {
-    public Trigerable trigerable;
-    public GameObject lockKey;
-
-
+    private bool triggered = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == lockKey)
+        if (!triggered)
         {
-            trigerable.onTrigger.Invoke();
+            StartCoroutine(TurnPowerOff());
+            triggered = true;
         }
     }
 
+    IEnumerator TurnPowerOff()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.PowerOn = false;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
