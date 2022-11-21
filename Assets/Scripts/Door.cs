@@ -24,6 +24,8 @@ public class Door : MonoBehaviour
     public void Open()
     {
         //Destroy(model); // LAME
-        _animator.SetTrigger(DoorOpen);
+        if(GameManager.PowerOn){
+            _animator.SetTrigger(DoorOpen);
+        }
     }
 }
