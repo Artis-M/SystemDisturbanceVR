@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Oculus.Interaction.PoseDetection;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,6 +33,18 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
     private Renderer displayRender;
 
+    private bool isPlaying = false;
+
+    private float seconds;
+
+    private float minutes;
+
+    public float timeRemaining = 6000;
+
+    public TextMeshPro timerText;
+
+    public GameObject warningText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +58,30 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("space"))
+        {
+            startSequence();
+        }
+
+        if (GameManager.isSelfDestruct)
+        {
+            timeRemaining -= Time.deltaTime;
+            timerText.text = $"{Mathf.FloorToInt(timeRemaining / 60)}:{Mathf.FloorToInt(timeRemaining % 60)}";
+
+            if (timeRemaining < 0)
+            {
+                Application.Quit();
+            }
+        }
     }
 
     void StartDestructionCountdown()
     {
+        displayRender.gameObject.SetActive(false);
+        warningText.gameObject.SetActive(true);
         GameManager.isSelfDestruct = true;
     }
+    
     public void startSequence()
     {
         if (!GameManager._ReadyForSelfDestruct)
@@ -60,8 +90,7 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
             return;
         }
         createOrder();
-        displaySequence();
-        displayRender.material = materials["questionMark"];
+        StartCoroutine(displaySequence());
     }
 
     void createOrder()
@@ -87,23 +116,28 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
             }
 
         }
-        
-        displayRender.material = materials["questionMark"];
     }
 
     private IEnumerator displaySequence()
     {
+        foreach (var light in warningLights)
+        {
+            light.range = 0.1f;
+        }
+        
         foreach (var gestureVar in gestureOrder)
         {
             displayRender.material = materials[gestureVar];
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
         }
-        displayRender.material = materials[gestureOrder.First()];
+        displayRender.material = materials["questionMark"];
+        isPlaying = true;
         yield return null;
     }
     
     public void CheckGesture(String name)
     {
+        if (!isPlaying) return;
         if (gestureOrder.Count > 0)
         {
             if (name.Equals(gestureOrder.First()))
@@ -116,7 +150,8 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
                 }
                 else
                 {
-                    displayRender.material = materials["done"];
+                    warningLights.First().color = Color.green;
+                    warningLights.RemoveAt(0);
                     StartDestructionCountdown();
                 }
                 
@@ -124,7 +159,8 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
         }
         else
         {
-            displayRender.material = materials["done"];
+            warningLights.First().color = Color.green;
+            warningLights.RemoveAt(0);
             StartDestructionCountdown();
         }
         
