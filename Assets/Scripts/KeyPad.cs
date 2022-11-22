@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,7 +11,41 @@ public class KeyPad : MonoBehaviour
     public string code;
     
     private TextMeshPro displayText;
+    private static bool PowerStatusUpd = false;
+    private static bool PowerOn = GameManager.PowerOn;
 
+    public static void PowerSupplyUpdate()
+    {
+        if (GameManager.PowerOn != PowerOn)
+        {
+            PowerStatusUpd = true;
+            PowerOn = GameManager.PowerOn;
+        }
+    }
+
+    private void Update()
+    {
+        if (PowerStatusUpd)
+        {
+            if (GameManager.PowerOn)
+            {
+                SetText("00000");
+            }
+            else
+            {
+                SetText("POWER");
+            }
+            PowerStatusUpd = false;
+        }
+        
+        
+    }
+
+    private void SetText(string text)
+    {
+        displayText.text = text;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +57,10 @@ public class KeyPad : MonoBehaviour
         Debug.Log("append"+nr);
         if (GameManager.PowerOn)
         {
+            Debug.Log("WORKS");
             string text = displayText.text;
             string newText = text.Substring(1) +""+nr;
-            displayText.text = newText;
+            SetText(newText);
             if (newText == code)
             {
                 Trigerable.onTrigger.Invoke();

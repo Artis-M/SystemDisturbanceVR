@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
             _isPowerOn = value;
             _ReadyForSelfDestruct = value;
             EmergencyPower_S.ToggleLights(value);
+            KeyPad.PowerSupplyUpdate();
         }
 
         

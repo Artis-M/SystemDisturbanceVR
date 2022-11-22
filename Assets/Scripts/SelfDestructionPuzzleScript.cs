@@ -5,6 +5,7 @@ using System.Linq;
 using Oculus.Interaction.PoseDetection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class SelfDestructionPuzzleScript : MonoBehaviour
@@ -86,8 +87,9 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
     {
         if (!GameManager._ReadyForSelfDestruct)
         {
-            //play sound
-            return;
+            //reset the game
+
+            SceneManager.LoadScene("FULL2");
         }
         createOrder();
         StartCoroutine(displaySequence());
