@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using OVR;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -22,8 +23,6 @@ public class EmergencyPower_S : MonoBehaviour
     public GameObject switch6;
     public GameObject switch7;
     public List<LineRenderer> lines;
-
-
     private void Awake()
     {
         _lights = lights;
@@ -53,6 +52,7 @@ public class EmergencyPower_S : MonoBehaviour
         {
             light.intensity = intensity;
         }
+        
     }
 
     void Update()

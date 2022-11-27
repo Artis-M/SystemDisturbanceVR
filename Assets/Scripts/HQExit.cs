@@ -6,6 +6,8 @@ using UnityEngine;
 public class HQExit : MonoBehaviour
 {
     private bool triggered = false;
+
+    public AudioSource sound;
     private void OnTriggerEnter(Collider other)
     {
         if (!triggered)
@@ -18,6 +20,7 @@ public class HQExit : MonoBehaviour
     IEnumerator TurnPowerOff()
     {
         yield return new WaitForSeconds(1.5f);
+        sound.Play();
         GameManager.PowerOn = false;
     }
     

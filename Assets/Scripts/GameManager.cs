@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     private static bool _isPowerOn = true;
+    public static bool isSelfDestruct = false;
     public static bool _ReadyForSelfDestruct = false;
     public static bool PowerOn
     {
@@ -20,22 +21,21 @@ public class GameManager : MonoBehaviour
             _ReadyForSelfDestruct = value;
             EmergencyPower_S.ToggleLights(value);
             KeyPad.PowerSupplyUpdate();
+           
         }
 
         
     }
-    public static bool isSelfDestruct;
+  
     
     public static void FinishGame()
     {
-        if (PowerOn)
+        if (PowerOn && isSelfDestruct)
         {
             SceneManager.LoadScene("EndGameCutScene");
         }
     }
-
-
-
+    
     // Start is called before the first frame update
     void Start()
     {

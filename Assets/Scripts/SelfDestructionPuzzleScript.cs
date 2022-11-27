@@ -46,6 +46,8 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
 
     public GameObject warningText;
 
+    public AudioSource alarmSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +83,7 @@ public class SelfDestructionPuzzleScript : MonoBehaviour
         displayRender.gameObject.SetActive(false);
         warningText.gameObject.SetActive(true);
         GameManager.isSelfDestruct = true;
+        alarmSound.Play();
     }
     
     public void startSequence()
